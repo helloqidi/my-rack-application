@@ -1,0 +1,13 @@
+#!/usr/bin/env ruby
+require 'yaml'
+require 'active_record'
+require 'irb'
+require 'irb/completion'
+
+config = YAML::load(File.open(File.dirname(__FILE__) + "/config.yml"))
+ActiveRecord::Base.establish_connection(config)
+
+class Email < ActiveRecord::Base
+end
+
+IRB.start
